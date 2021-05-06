@@ -3,6 +3,7 @@ package com.Capgemini.Repository;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.Optional;
 
 import com.Capgemini.Beans.Account;
 import com.Capgemini.exceptions.*;
@@ -16,8 +17,8 @@ public AccountRepositoryImpl() {
 	this.accounts = new LinkedList<Account>();
 }
 	@Override
-	public Account getAccount(int accountNum) {
-		// TODO Auto-generated method stub
+	public Optional<Account> getAccount(int accountNum) {
+		
 		/*ListIterator<Account> it = accounts.listIterator();
 		
 			
@@ -27,20 +28,22 @@ public AccountRepositoryImpl() {
 			}
 		}
 		*/
+		Optional<Account> account ;
 		
 		
 		for(Account n : accounts) {
 			if(n.getAccountNumber() == accountNum) {
-				return n;
+				account = Optional.of(n);
+				return account;
 			}
 		}
 	
-		return null;
+		return account= Optional.empty();
 	}
 
 	@Override
 	public void addAccount(Account a)  {
-		// TODO Auto-generated method stub
+		
 		accounts.add(a);
 	}
 	public void updateAccount(Account a){	

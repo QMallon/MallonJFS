@@ -2,6 +2,7 @@ package com.Capgemini.Client;
 
 import com.Capgemini.Service.AccountService;
 import com.Capgemini.Service.AccountServiceImpl;
+import com.Capgemini.exceptions.InsufficientBalanceException;
 
 public class ClientApp {
 
@@ -11,10 +12,14 @@ public class ClientApp {
 		//client.createAccount(1, 200);
 		//Creating accounts
 		System.out.println("Creating Accounts");
+		
+			
+		
+		System.out.println(client.createAccount(1, 300));
 		System.out.println(client.createAccount(1, 500));
 		System.out.println(client.createAccount(2, 600));
 		System.out.println(client.createAccount(1, 600));
-		
+	
 		
 		//Depositing
 		System.out.println("\nDeposits");
@@ -32,6 +37,9 @@ public class ClientApp {
 		System.out.println(client.fundTransfer(1, 200,3));
 		System.out.println(client.fundTransfer(3, 200,2));
 		System.out.println(client.fundTransfer(1, 2000,2));
+		
+		
+		
 		
 		
 		//Accounts
